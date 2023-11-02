@@ -7,7 +7,6 @@ import { fetchRegisterUser } from '../store/usersReducer'
 export const Register = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const user = useSelector((state) => state.users.users)
 
     const [registerUser, setRegisterUser] = useState({
         username: '',

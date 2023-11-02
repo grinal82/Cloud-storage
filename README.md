@@ -9,19 +9,19 @@ installation Steps if you want to try it out
 ```bash
 git clone https://github.com/grinal82/Cloud-storage.git
 
-$ cd backend
+cd backend
 
-$ python -m venv venv 
+python -m venv venv 
 
-$ source venv/bin/activate
+source venv/bin/activate
 
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 
-$ cd webstorage
+cd webstorage
 
-$ python manage.py migrate
+python manage.py migrate
 
-$ python manage.py runserver
+python manage.py runserver
 
 
 ```

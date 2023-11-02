@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchLogoutUser } from '../store/usersReducer';
+
+
+// NOTE: tyied out to use axios with default settings for csrf and credentials but get same 403 response
+
 // import axios from 'axios'
 
 // axios.defaults.xsrfCookieName = 'csrftoken';
@@ -12,8 +16,9 @@ import { fetchLogoutUser } from '../store/usersReducer';
 //     baseURL: 'http://127.0.0.1:8000'
 // })
 
+
 const Navbar = () => {
-    const user = useSelector((state) => state.users.users); // Replace with your user state
+    const user = useSelector((state) => state.users.users); 
   
 
     const [localUser, setLocalUser] = useState(null)
@@ -25,18 +30,18 @@ const Navbar = () => {
         console.log(user)
     }, [user, dispatch]);
   
-
-//   const handleLogout = (e) => {
-//     e.preventDefault();
-//     client.post('/api/logout/',
-//       {
-//         withCredentials: true
-//       }).then(function(res){
-//         console.log(res)
-//         setLocalUser(null);
-//       })
+// NOTE: alternative lougout method using axios. Still get 403 response
+  // const handleLogout = (e) => {
+  //   e.preventDefault();
+  //   client.post('/api/logout/',
+  //     {
+  //       withCredentials: true
+  //     }).then(function(res){
+  //       console.log(res)
+  //       setLocalUser(null);
+  //     })
     
-//   };
+  // };
 
     const handleLogout = (e) => {
       e.preventDefault();
@@ -46,7 +51,7 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
       <Link to={'/'} className="app-name">Grin-Storage</Link>
-      {user!==null ? ( // If user is logged in
+      {user!==null && user.length > 0 ? ( // If user is logged in
         <div className="user-info">
           <div className="user-info_username"><p>Hello, {user.username}</p></div>
           <button className="logout-btn" onClick={handleLogout}>Logout</button>

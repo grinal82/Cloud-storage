@@ -12,7 +12,7 @@ export const LogIn = () => {
         password: '',
     })
 
-    console.log(currentUser)
+    // console.log(currentUser)
 
 
     const handleSubmit = (e) => {

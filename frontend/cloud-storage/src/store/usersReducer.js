@@ -1,16 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import getCookie from "../common";
 
-const cookies = document.cookie;
-const cookieArray = cookies.split(';');
-let sessionid = null
-
-cookieArray.forEach(cookie => {
-    if (cookie.includes('sessionid=')) {
-        sessionid = cookie.split('=')[1];
-    }
-})
-
 export const fetchRegisterUser = createAsyncThunk(
     'users/register', async({ username, email, password }) => {
         const response = await fetch('http://127.0.0.1:8000/api/register/', {

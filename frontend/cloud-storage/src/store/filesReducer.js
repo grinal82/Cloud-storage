@@ -13,7 +13,6 @@ export const fetchFiles = createAsyncThunk(
                 'X-CSRFToken': csrftoken
             },
             credentials: 'include',
-            body: JSON.stringify({csrfmiddlewaretoken: csrftoken}),
         });
         const data = await response.json();
         return data;
